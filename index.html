@@ -4,13 +4,56 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/styles.css">
   <title>DateNite</title>
 </head>
 <body>
-  <input type="text" name="main-ingredient" id="main-ingredient">
-  <button type="submit">Submit</button>
+  <div class="bgContainer">
+    <div class="block">
+      <header id="" class="has-text-centered ">
+        <h1 id="title" class="title is-1 has-text-light">Date Night</h1>
+      </header>
+    </div>
+
+    <div class="block columns is-centered">
+      <main id="" class="form-container column is-half">
+        <div id="form" class="has-text-centered">
+          <!-- Dinner Form -->
+          <h2 class="subtitle is-4 has-text-light">What's for Dinner</h2>
+          <div class="columns is-centered">
+            <div class="column is-4">
+              <input id="main-ingredient" name="main-ingredient" class="input is-warning" type="text" placeholder="Enter a main ingredient">
+            </div>
+          </div>
+
+          <!-- Drink Form -->
+          <h2 class="subtitle is-4 has-text-light">What to Drink</h2>
+          <div class="columns is-centered">
+            <div class="column is-4">
+              <input id="drinkInput" class="input is-warning" type="text" placeholder="Enter a main ingredient">
+            </div>
+          </div>
+
+          <div class="buttons columns is-centered mt-2">
+            <button id="btn-submit" class="button is-warning is-rounded" type="submit">Submit</button>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- JQuery UI in case we need -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
