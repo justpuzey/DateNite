@@ -1,8 +1,9 @@
-var mealID = '52940'
+var mealID = '52941'
 var mealTitle = document.querySelector('#meal-title')
 var mealThumb = document.querySelector('#meal-img')
 var mealIngredients = document.querySelector('#meal-ingredients')
 var mealInsructions = document.querySelector('#meal-instructions')
+var mealVideo = document.querySelector('#meal-video')
 //-------------------------------------------------------------------
 //ADD MEAL
 var mealDetailURL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID
@@ -49,7 +50,7 @@ fetch(mealDetailURL)
 
       for (var i = 0; i < ingredientList.length; i++) {
         if (ingredientList[i].ingredient != '') {
-          console.log('iteration: ' + i + 'ingredient: ' + ingredientList[i].ingredient)
+          // console.log('iteration: ' + i + 'ingredient: ' + ingredientList[i].ingredient)
           var mIngEl = document.createElement('li')
           mIngEl.innerHTML = ingredientList[i].measure + ' ' + ingredientList[i].ingredient
           mealIngredients.appendChild(mIngEl)
@@ -61,7 +62,17 @@ fetch(mealDetailURL)
       mealInstEl.innerHTML = mealDetails.meals[0].strInstructions
       mealInsructions.appendChild(mealInstEl)
 
-
+      //Embed Video
+      var videoURL = mealDetails.meals[0].strYoutube
+      if (videoURL) {
+        videoID = videoURL.split('=')
+        console.log('vidID: ', videoID)
+        var videoEmbedURL = 'https://www.youtube.com/embed/' + videoID[1]
+        console.log('vidURL: ', videoEmbedURL)
+        mealVideo.setAttribute("src", videoEmbedURL)
+        mealInstEl.innerHTML = mealDetails.meals[0].strInstructions
+        mealInsructions.appendChild(mealInstEl)
+      }
     })
   })
 
