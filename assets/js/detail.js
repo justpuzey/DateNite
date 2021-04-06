@@ -85,7 +85,7 @@ var cocktailInsructions = document.querySelector('#cocktail-instructions')
 var cocktailVideo = document.querySelector('#cocktail-video')
 
 //fetch cotails based on filter type
-var filterType = true
+var filterType = false
 if (filterType = true) {
   filterType = 'Alcoholic'
 } else {
@@ -164,14 +164,7 @@ fetch(cocktailsURL)
             glassInstEl.innerHTML = 'Recommended Serving Glass: ' + cocktailDetails.drinks[0].strGlass
             glassInstEl.setAttribute("class", 'Glass')
             cocktailInsructions.appendChild(glassInstEl)
-
-
-
-
           })
         })
-
-
-
     })
   })
