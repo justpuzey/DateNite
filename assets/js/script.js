@@ -23,7 +23,7 @@ var getMeal = function () {
   fetch(mealUrl)
     .then(function (response) {
       response.json().then(function (mealChoice) {
-        var mealID = mealChoice.meals[0].idMeal
+        var mealID = mealChoice.meals[Math.floor(Math.random() *  mealChoice.meals.length)].idMeal
         console.log('meals based on main Ingredient: ', mealChoice)
         return mealID
 
