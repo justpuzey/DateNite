@@ -29,7 +29,7 @@ var getNonAlcDrink = function() {
   var url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
   fetch(url)
   .then(function(response) {
-    response.json().then(function(mealChoice) {
+    response.json().then(function(drinkNaChoice) {
       console.log(mealChoice)
     })
   })
@@ -39,7 +39,7 @@ var getAlcDrink = function() {
   var url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
   fetch(url)
   .then(function(response) {
-    response.json().then(function(mealChoice) {
+    response.json().then(function(drinkAChoice) {
       console.log(mealChoice)
     })
   })
