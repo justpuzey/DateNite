@@ -2,7 +2,9 @@ var mealID = '52940'
 var mealTitle = document.querySelector('#meal-title')
 var mealThumb = document.querySelector('#meal-img')
 var mealIngredients = document.querySelector('#meal-ingredients')
-
+var mealInsructions = document.querySelector('#meal-instructions')
+//-------------------------------------------------------------------
+//ADD MEAL
 var mealDetailURL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID
 fetch(mealDetailURL)
   .then(function (response) {
@@ -21,7 +23,7 @@ fetch(mealDetailURL)
       mealThumb.innerHTML = ""
       mealThumb.appendChild(thumbEl)
 
-      //Ingredient List (this is needed because API )
+      //Ingredient List (this is needed to simplify API format)
       var ingredientList = [
         { 'ingredient': mealDetails.meals[0].strIngredient1, 'measure': mealDetails.meals[0].strMeasure1 },
         { 'ingredient': mealDetails.meals[0].strIngredient2, 'measure': mealDetails.meals[0].strMeasure2 },
@@ -45,7 +47,6 @@ fetch(mealDetailURL)
         { 'ingredient': mealDetails.meals[0].strIngredient20, 'measure': mealDetails.meals[0].strMeasure20 }
       ]
 
-      // console.log('ingredient', ingredientList[0].ingredient)
       for (var i = 0; i < ingredientList.length; i++) {
         if (ingredientList[i].ingredient != '') {
           console.log('iteration: ' + i + 'ingredient: ' + ingredientList[i].ingredient)
@@ -54,7 +55,15 @@ fetch(mealDetailURL)
           mealIngredients.appendChild(mIngEl)
         }
       }
-      console.log('ingredients', ingredientList)
+
+      //Add Instructions
+      var mealInstEl = document.createElement('p')
+      mealInstEl.innerHTML = mealDetails.meals[0].strInstructions
+      mealInsructions.appendChild(mealInstEl)
+
 
     })
   })
+
+//-------------------------------------------------------------------
+//ADD COCTAIL
