@@ -23,9 +23,9 @@ var getMeal = function () {
   fetch(mealUrl)
     .then(function (response) {
       response.json().then(function (mealChoice) {
-        // var mealID = mealChoice.meals[0].idMeal
+        var mealID = mealChoice.meals[0].idMeal
         console.log('meals based on main Ingredient: ', mealChoice)
-        // console.log(mealID)
+        console.log(mealID)
 
         var mealDetailURL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID
         fetch(mealDetailURL)
@@ -40,21 +40,23 @@ var getMeal = function () {
   
 
 var getNonAlcDrink = function() {
-  var url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
-  fetch(url)
+  var drinkNAurl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
+  fetch(drinkNAurl)
   .then(function(response) {
     response.json().then(function(drinkNaChoice) {
-      console.log(mealChoice)
+      var drinkNa = drinkNaChoice.drinks[Math.floor(Math.random() *  drinkNaChoice.drinks.length)];
+      return drinkNa.idDrink
     })
   })
 }
 
 var getAlcDrink = function() {
-  var url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
-  fetch(url)
+  var drinkAurl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
+  fetch(drinkAurl)
   .then(function(response) {
     response.json().then(function(drinkAChoice) {
-      console.log(mealChoice)
+      var drinkA = drinkAChoice.drinks[Math.floor(Math.random() * drinkAChoice.drinks.length)];
+      return drinkA.idDrink
     })
   })
 }
