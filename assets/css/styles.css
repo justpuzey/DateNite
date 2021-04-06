@@ -90,3 +90,7 @@ body {
         }
     }
 }
+
+.thumbnail{
+    width: 250px;
+}
