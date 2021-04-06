@@ -15,6 +15,8 @@
 // Possible upgrades: drink selecction based on users age
 
 
+
+// returns meal as the meal ID from the Object in the API
 var getMeal = function () {
   var mainIngredient = 'chicken'
   var mealUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + mainIngredient
