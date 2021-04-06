@@ -77,4 +77,94 @@ fetch(mealDetailURL)
   })
 
 //-------------------------------------------------------------------
-//ADD COCTAIL
+//ADD COCKTAIL
+var cocktailTitle = document.querySelector('#cocktail-title')
+var cocktailThumb = document.querySelector('#cocktail-img')
+var cocktailIngredients = document.querySelector('#cocktail-ingredients')
+var cocktailInsructions = document.querySelector('#cocktail-instructions')
+var cocktailVideo = document.querySelector('#cocktail-video')
+
+//fetch cotails based on filter type
+var filterType = false
+if (filterType = true) {
+  filterType = 'Alcoholic'
+} else {
+  filterType = 'Non-Alcoholic'
+}
+var cocktailsURL = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=' + filterType
+fetch(cocktailsURL)
+  .then(function (response) {
+    response.json().then(function (cocktail) {
+      console.log('cocktails: ', cocktail)
+
+      //Get random cocktail ID
+      var cocktailIndex = Math.floor(Math.random() * cocktail.drinks.length)
+      console.log('cocktail Index:', cocktailIndex)
+      var cocktailID = cocktail.drinks[cocktailIndex].idDrink
+      console.log('cocktailID: ', cocktailID)
+
+      //fetch cocktail details
+      var cocktailDetailURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + cocktailID
+      fetch(cocktailDetailURL)
+        .then(function (response) {
+          response.json().then(function (cocktailDetails) {
+            console.log('cocktail details', cocktailDetails)
+
+            //Add coctail title
+            var coctailAPITitle = cocktailDetails.drinks[0].strDrink;
+            console.log('coctail title:', coctailAPITitle)
+            cocktailTitle.textContent = coctailAPITitle;
+
+            //Add thumbnail image
+            var coctailThumbURL = cocktailDetails.drinks[0].strDrinkThumb
+            var cocktailThumbEl = document.createElement('img')
+            cocktailThumbEl.setAttribute("src", coctailThumbURL)
+            cocktailThumbEl.setAttribute("class", 'thumbnail')
+            cocktailThumb.innerHTML = ""
+            cocktailThumb.appendChild(cocktailThumbEl)
+
+            //Ingredient List (this is needed to simplify API format)
+            var cocktailIngredientList = [
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient1, 'measure': cocktailDetails.drinks[0].strMeasure1 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient2, 'measure': cocktailDetails.drinks[0].strMeasure2 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient3, 'measure': cocktailDetails.drinks[0].strMeasure3 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient4, 'measure': cocktailDetails.drinks[0].strMeasure4 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient5, 'measure': cocktailDetails.drinks[0].strMeasure5 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient6, 'measure': cocktailDetails.drinks[0].strMeasure6 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient7, 'measure': cocktailDetails.drinks[0].strMeasure7 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient8, 'measure': cocktailDetails.drinks[0].strMeasure8 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient9, 'measure': cocktailDetails.drinks[0].strMeasure9 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient10, 'measure': cocktailDetails.drinks[0].strMeasure10 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient11, 'measure': cocktailDetails.drinks[0].strMeasure11 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient12, 'measure': cocktailDetails.drinks[0].strMeasure12 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient13, 'measure': cocktailDetails.drinks[0].strMeasure13 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient14, 'measure': cocktailDetails.drinks[0].strMeasure14 },
+              { 'ingredient': cocktailDetails.drinks[0].strIngredient15, 'measure': cocktailDetails.drinks[0].strMeasure15 }
+            ]
+
+            for (var i = 0; i < cocktailIngredientList.length; i++) {
+              if (cocktailIngredientList[i].ingredient != '' && cocktailIngredientList[i].ingredient != null) {
+                var cocktailIngEl = document.createElement('li')
+                //replace null values with ""
+                var measure = cocktailIngredientList[i].measure
+                if (measure === null) {
+                  measure = "";
+                }
+                cocktailIngEl.innerHTML = measure + ' ' + cocktailIngredientList[i].ingredient
+                cocktailIngredients.appendChild(cocktailIngEl)
+              }
+            }
+
+            //Add Instructions
+            var cocktailInstEl = document.createElement('p')
+            cocktailInstEl.innerHTML = cocktailDetails.drinks[0].strInstructions
+            cocktailInsructions.appendChild(cocktailInstEl)
+            //Recommended Glass
+            var glassInstEl = document.createElement('p')
+            glassInstEl.innerHTML = 'Recommended Serving Glass: ' + cocktailDetails.drinks[0].strGlass
+            glassInstEl.setAttribute("class", 'Glass')
+            cocktailInsructions.appendChild(glassInstEl)
+          })
+        })
+    })
+  })
