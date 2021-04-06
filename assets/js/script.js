@@ -25,42 +25,42 @@ var getMeal = function () {
       response.json().then(function (mealChoice) {
         var mealID = mealChoice.meals[0].idMeal
         console.log('meals based on main Ingredient: ', mealChoice)
-        console.log(mealID)
+        return mealID
 
-        var mealDetailURL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID
-        fetch(mealDetailURL)
-          .then(function (response) {
-            response.json().then(function (mealDetails) {
-              console.log('details', mealDetails)
+        // var mealDetailURL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID
+        // fetch(mealDetailURL)
+        //   .then(function (response) {
+        //     response.json().then(function (mealDetails) {
+        //       console.log('details', mealDetails)
             })
           })
-        })
-      })
-    }
+        }
+    //   })
+    // }
   
 
-var getNonAlcDrink = function() {
-  var drinkNAurl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
-  fetch(drinkNAurl)
-  .then(function(response) {
-    response.json().then(function(drinkNaChoice) {
-      var drinkNa = drinkNaChoice.drinks[Math.floor(Math.random() *  drinkNaChoice.drinks.length)];
-      return drinkNa.idDrink
-    })
-  })
-}
+// var getNonAlcDrink = function() {
+//   var drinkNAurl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
+//   fetch(drinkNAurl)
+//   .then(function(response) {
+//     response.json().then(function(drinkNaChoice) {
+//       var drinkNa = drinkNaChoice.drinks[Math.floor(Math.random() *  drinkNaChoice.drinks.length)];
+//       return drinkNa.idDrink
+//     })
+//   })
+// }
 
-var getAlcDrink = function() {
-  var drinkAurl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
-  fetch(drinkAurl)
-  .then(function(response) {
-    response.json().then(function(drinkAChoice) {
-      var drinkA = drinkAChoice.drinks[Math.floor(Math.random() * drinkAChoice.drinks.length)];
-      return drinkA.idDrink
-    })
-  })
-}
+// var getAlcDrink = function() {
+//   var drinkAurl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
+//   fetch(drinkAurl)
+//   .then(function(response) {
+//     response.json().then(function(drinkAChoice) {
+//       var drinkA = drinkAChoice.drinks[Math.floor(Math.random() * drinkAChoice.drinks.length)];
+//       return drinkA.idDrink
+//     })
+//   })
+// }
 
 getMeal()
-getNonAlcDrink()
-getAlcDrink()
+// getNonAlcDrink()
+// getAlcDrink()
