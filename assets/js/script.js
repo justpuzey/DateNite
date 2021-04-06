@@ -15,36 +15,56 @@
 // Possible upgrades: drink selecction based on users age
 
 
-var getMeal = function() {
-  var url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast"
-  fetch(url)
-  .then(function(response) {
-    response.json().then(function(mealChoice) {
-      console.log(mealChoice)
+var getMeal = function () {
+  var mainIngredient = 'chicken'
+  var mealUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + mainIngredient
+  fetch(mealUrl)
+    .then(function (response) {
+      response.json().then(function (mealChoice) {
+        // var mealID = mealChoice.meals[0].idMeal
+        // var mealID = mealChoice.meals[1].idMeal
+        console.log('meals based on main Ingredient: ', mealChoice)
+        // console.log(mealID)
+
+        var mealDetailURL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID
+        fetch(mealDetailURL)
+          .then(function (response) {
+            response.json().then(function (mealDetails) {
+              console.log('details', mealDetails)
+
+
+
+            })
+          })
+
+
+
+      })
     })
-  })
 }
 
-var getNonAlcDrink = function() {
-  var url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
-  fetch(url)
-  .then(function(response) {
-    response.json().then(function(drinkNaChoice) {
-      console.log(mealChoice)
-    })
-  })
-}
+// var getNonAlcDrink = function() {
+//   var url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
+//   fetch(url)
+//   .then(function(response) {
+//     response.json().then(function(drinkNaChoice) {
+//       console.log(drinks)
 
-var getAlcDrink = function() {
-  var url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
-  fetch(url)
-  .then(function(response) {
-    response.json().then(function(drinkAChoice) {
-      console.log(mealChoice)
-    })
-  })
-}
+
+//     })
+//   })
+// }
+
+// var getAlcDrink = function() {
+//   var url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
+//   fetch(url)
+//   .then(function(response) {
+//     response.json().then(function(drinkAChoice) {
+//       console.log(mealChoice)
+//     })
+//   })
+// }
 
 getMeal()
-getNonAlcDrink()
-getAlcDrink()
+// getNonAlcDrink()
+// getAlcDrink()
