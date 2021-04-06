@@ -45,6 +45,21 @@ body {
     font-family: 'Lora', serif;
 }
 
+.modal-background {
+    background-color: rgba(151, 151, 151, 0.10);
+}
+
+.modal-content {
+    background-color: rgba(151, 151, 151, 0.95);
+    width: 70%;
+    overflow: hidden;
+    border-radius: 1%;
+}
+
+.modal-subtitle {
+    font-family: 'IM Fell Great Primer', serif;
+}
+
 
 
 /* Background Images URLs */

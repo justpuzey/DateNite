@@ -2,7 +2,7 @@
 // User presented with a modal
 // Modal does age verification
 // If user is under age of 21, app runs without drink recipe
-// If user is over 21 app runs with drink recipe 
+// If user is over 21 app runs with drink recipe
 // When app runs user is able to select movie based on genre, year it was made, and
 // Based on movie selections, a random food recipe and drink recipe are also given
 // Create a function to select the movie
