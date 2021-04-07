@@ -60,7 +60,9 @@ body {
     font-family: 'IM Fell Great Primer', serif;
 }
 
-
+.radio {
+    font-size: 1.1rem;
+}
 
 /* Background Images URLs */
 @keyframes animate {

@@ -29,7 +29,8 @@ modal.classList.remove('is-active');
 // returns meal as the meal ID from the Object in the API
 var getMeal = function (mainIngredientValue) {
 
-
+  var alcoholicValue  = document.alcoholicForm.alcoholic.value
+  console.log(alcoholicValue)
 
   // var mainIngredient = 'chicken'
   var mealUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + mainIngredientValue
@@ -46,7 +47,7 @@ var getMeal = function (mainIngredientValue) {
 
         // Insert links for each meal and meal ID to link for detail.html
         var link1 = document.querySelector("#link1");
-        link1.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+        link1.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId + "&alcoholic=" + alcoholicValue);
 
         mealName1 = document.querySelector("#mealName1");
         mealName1.textContent = mealName;
@@ -88,7 +89,7 @@ var getMeal = function (mainIngredientValue) {
         mealDisplayPic.setAttribute("src", mealThum);
 
         var link2 = document.querySelector("#link2");
-        link2.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+        link2.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId + "&alcoholic=" + alcoholicValue);
 
         mealName2 = document.querySelector("#mealName2");
         mealName2.textContent = mealName;
@@ -108,7 +109,7 @@ var getMeal = function (mainIngredientValue) {
         mealDisplayPic.setAttribute("src", mealThum);
 
         var link3 = document.querySelector("#link3");
-        link3.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+        link3.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId + "&alcoholic=" + alcoholicValue);
 
         mealName3 = document.querySelector("#mealName3");
         mealName3.textContent = mealName;
@@ -128,7 +129,7 @@ var getMeal = function (mainIngredientValue) {
         mealDisplayPic.setAttribute("src", mealThum);
 
         var link4 = document.querySelector("#link4");
-        link4.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+        link4.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId + "&alcoholic=" + alcoholicValue);
 
         mealName4 = document.querySelector("#mealName4");
         mealName4.textContent = mealName;
@@ -148,7 +149,7 @@ var getMeal = function (mainIngredientValue) {
         mealDisplayPic.setAttribute("src", mealThum);
 
         var link5 = document.querySelector("#link5");
-        link5.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+        link5.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId + "&alcoholic=" + alcoholicValue);
 
         mealName5 = document.querySelector("#mealName5");
         mealName5.textContent = mealName;

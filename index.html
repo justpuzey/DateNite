@@ -25,7 +25,7 @@
       <main id="" class="form-container column is-half">
         <div id="form" class="has-text-centered">
           <!-- Dinner Form -->
-          <h2 class="subtitle is-4 has-text-light">What's for Dinner</h2>
+          <h2 class="subtitle is-4 has-text-light">What's for Dinner?</h2>
           <div class="columns is-centered">
             <div class="column is-4">
               <input id="main-ingredient" name="main-ingredient" class="input is-warning" type="text" placeholder="Enter a main ingredient">
@@ -33,18 +33,28 @@
           </div>
 
           <!-- Drink Form -->
-          <h2 class="subtitle is-4 has-text-light">Would like your beverage to have alcohol</h2>
+          <h2 class="subtitle is-4 has-text-light">Would like your beverage to have alcohol?</h2>
           <div class="columns is-centered">
             <div class="column is-4">
-              <label class="container">Yes
-                <input type="checkbox" id="alcoholic" checked="checked">
-                <span class="checkmark"></span>
-              </label>
+              <form class="control" name="alcoholicForm">
+                <label class="radio has-text-light">
+                  <input type="radio" id="alcoholic" name="alcoholic" value="1" >
+                  Yes
+                </label>
+                <label class="radio has-text-light">
+                  <input type="radio" id="alcoholic"  name="alcoholic" value="0" >
+                  No
+                </label>
+              </form>
+                <!-- <label class="container">Yes
+                  <input type="checkbox" id="alcoholic" checked="checked">
+                  <span class="checkmark"></span>
+                </label>
 
-              <label class="container">No
-                <input type="checkbox" id="non-alcoholic">
-                <span class="checkmark"></span>
-              </label>
+                <label class="container">No
+                  <input type="checkbox" id="non-alcoholic">
+                  <span class="checkmark"></span>
+                </label> -->
 
             </div>
           </div>
