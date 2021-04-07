@@ -45,86 +45,27 @@ var displayMealDetails = function (mealId) {
         mealThumb.appendChild(thumbEl)
 
         //Ingredient List (this is needed to simplify API format)
-        var ingredientList = [{
-            'ingredient': mealDetails.meals[0].strIngredient1,
-            'measure': mealDetails.meals[0].strMeasure1
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient2,
-            'measure': mealDetails.meals[0].strMeasure2
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient3,
-            'measure': mealDetails.meals[0].strMeasure3
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient4,
-            'measure': mealDetails.meals[0].strMeasure4
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient5,
-            'measure': mealDetails.meals[0].strMeasure5
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient6,
-            'measure': mealDetails.meals[0].strMeasure6
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient7,
-            'measure': mealDetails.meals[0].strMeasure7
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient8,
-            'measure': mealDetails.meals[0].strMeasure8
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient9,
-            'measure': mealDetails.meals[0].strMeasure9
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient10,
-            'measure': mealDetails.meals[0].strMeasure10
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient11,
-            'measure': mealDetails.meals[0].strMeasure11
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient12,
-            'measure': mealDetails.meals[0].strMeasure12
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient13,
-            'measure': mealDetails.meals[0].strMeasure13
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient14,
-            'measure': mealDetails.meals[0].strMeasure14
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient15,
-            'measure': mealDetails.meals[0].strMeasure15
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient16,
-            'measure': mealDetails.meals[0].strMeasure16
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient17,
-            'measure': mealDetails.meals[0].strMeasure17
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient18,
-            'measure': mealDetails.meals[0].strMeasure18
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient19,
-            'measure': mealDetails.meals[0].strMeasure19
-          },
-          {
-            'ingredient': mealDetails.meals[0].strIngredient20,
-            'measure': mealDetails.meals[0].strMeasure20
-          }
+        var ingredientList = [
+          { 'ingredient': mealDetails.meals[0].strIngredient1, 'measure': mealDetails.meals[0].strMeasure1 },
+          { 'ingredient': mealDetails.meals[0].strIngredient2, 'measure': mealDetails.meals[0].strMeasure2 },
+          { 'ingredient': mealDetails.meals[0].strIngredient3, 'measure': mealDetails.meals[0].strMeasure3 },
+          { 'ingredient': mealDetails.meals[0].strIngredient4, 'measure': mealDetails.meals[0].strMeasure4 },
+          { 'ingredient': mealDetails.meals[0].strIngredient5, 'measure': mealDetails.meals[0].strMeasure5 },
+          { 'ingredient': mealDetails.meals[0].strIngredient6, 'measure': mealDetails.meals[0].strMeasure6 },
+          { 'ingredient': mealDetails.meals[0].strIngredient7, 'measure': mealDetails.meals[0].strMeasure7 },
+          { 'ingredient': mealDetails.meals[0].strIngredient8, 'measure': mealDetails.meals[0].strMeasure8 },
+          { 'ingredient': mealDetails.meals[0].strIngredient9, 'measure': mealDetails.meals[0].strMeasure9 },
+          { 'ingredient': mealDetails.meals[0].strIngredient10, 'measure': mealDetails.meals[0].strMeasure10 },
+          { 'ingredient': mealDetails.meals[0].strIngredient11, 'measure': mealDetails.meals[0].strMeasure11 },
+          { 'ingredient': mealDetails.meals[0].strIngredient12, 'measure': mealDetails.meals[0].strMeasure12 },
+          { 'ingredient': mealDetails.meals[0].strIngredient13, 'measure': mealDetails.meals[0].strMeasure13 },
+          { 'ingredient': mealDetails.meals[0].strIngredient14, 'measure': mealDetails.meals[0].strMeasure14 },
+          { 'ingredient': mealDetails.meals[0].strIngredient15, 'measure': mealDetails.meals[0].strMeasure15 },
+          { 'ingredient': mealDetails.meals[0].strIngredient16, 'measure': mealDetails.meals[0].strMeasure16 },
+          { 'ingredient': mealDetails.meals[0].strIngredient17, 'measure': mealDetails.meals[0].strMeasure17 },
+          { 'ingredient': mealDetails.meals[0].strIngredient18, 'measure': mealDetails.meals[0].strMeasure18 },
+          { 'ingredient': mealDetails.meals[0].strIngredient19, 'measure': mealDetails.meals[0].strMeasure19 },
+          { 'ingredient': mealDetails.meals[0].strIngredient20, 'measure': mealDetails.meals[0].strMeasure20 }
         ]
 
         for (var i = 0; i < ingredientList.length; i++) {
@@ -164,15 +105,16 @@ var cocktailInsructions = document.querySelector('#cocktail-instructions')
 var cocktailVideo = document.querySelector('#cocktail-video')
 
 var displayDrinkDetails = function (alcoholicValue) {
-  console.log(alcoholicValue)
+  alcoholicValue = parseInt(alcoholicValue, 10)
+  console.log('alcohol value:', typeof alcoholicValue)
   //fetch cotails based on filter type
-  var filterType = false
-  if (alcoholicValue === "1") {
+  var filterType = ""
+  if (alcoholicValue === 1) {
     filterType = 'Alcoholic'
   } else {
-    filterType = 'Non-Alcoholic'
+    filterType = 'Non_Alcoholic'
   }
-  console.log(filterType)
+  console.log('filter type:', filterType)
   var cocktailsURL = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=' + filterType
   console.log(cocktailsURL)
   fetch(cocktailsURL)
@@ -181,92 +123,48 @@ var displayDrinkDetails = function (alcoholicValue) {
         console.log('cocktails: ', cocktail)
 
         //Get random cocktail ID
-        var cocktailIndex = Math.floor(Math.random() * cocktail.drinks.length)
-        console.log('cocktail Index:', cocktailIndex)
-        var cocktailID = cocktail.drinks[cocktailIndex].idDrink
-        console.log('cocktailID: ', cocktailID)
+        var cocktailIndex = Math.floor(Math.random() * cocktail.drinks.length);
+        console.log('cocktail Index:', cocktailIndex);
+        var cocktailID = cocktail.drinks[cocktailIndex].idDrink;
+        console.log('cocktailID: ', cocktailID);
 
         //fetch cocktail details
-        var cocktailDetailURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + cocktailID
+        var cocktailDetailURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + cocktailID;
         fetch(cocktailDetailURL)
           .then(function (response) {
             response.json().then(function (cocktailDetails) {
-              console.log('cocktail details', cocktailDetails)
+              console.log('cocktail details', cocktailDetails);
 
               //Add coctail title
               var coctailAPITitle = cocktailDetails.drinks[0].strDrink;
-              console.log('coctail title:', coctailAPITitle)
+              console.log('coctail title:', coctailAPITitle);
               cocktailTitle.textContent = coctailAPITitle;
 
               //Add thumbnail image
-              var coctailThumbURL = cocktailDetails.drinks[0].strDrinkThumb
-              var cocktailThumbEl = document.createElement('img')
-              cocktailThumbEl.setAttribute("src", coctailThumbURL)
-              cocktailThumbEl.setAttribute("class", 'thumbnail')
-              cocktailThumb.innerHTML = ""
-              cocktailThumb.appendChild(cocktailThumbEl)
+              var coctailThumbURL = cocktailDetails.drinks[0].strDrinkThumb;
+              var cocktailThumbEl = document.createElement('img');
+              cocktailThumbEl.setAttribute("src", coctailThumbURL);
+              cocktailThumbEl.setAttribute("class", 'thumbnail');
+              cocktailThumb.innerHTML = "";
+              cocktailThumb.appendChild(cocktailThumbEl);
 
               //Ingredient List (this is needed to simplify API format)
-              var cocktailIngredientList = [{
-                  'ingredient': cocktailDetails.drinks[0].strIngredient1,
-                  'measure': cocktailDetails.drinks[0].strMeasure1
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient2,
-                  'measure': cocktailDetails.drinks[0].strMeasure2
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient3,
-                  'measure': cocktailDetails.drinks[0].strMeasure3
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient4,
-                  'measure': cocktailDetails.drinks[0].strMeasure4
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient5,
-                  'measure': cocktailDetails.drinks[0].strMeasure5
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient6,
-                  'measure': cocktailDetails.drinks[0].strMeasure6
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient7,
-                  'measure': cocktailDetails.drinks[0].strMeasure7
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient8,
-                  'measure': cocktailDetails.drinks[0].strMeasure8
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient9,
-                  'measure': cocktailDetails.drinks[0].strMeasure9
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient10,
-                  'measure': cocktailDetails.drinks[0].strMeasure10
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient11,
-                  'measure': cocktailDetails.drinks[0].strMeasure11
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient12,
-                  'measure': cocktailDetails.drinks[0].strMeasure12
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient13,
-                  'measure': cocktailDetails.drinks[0].strMeasure13
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient14,
-                  'measure': cocktailDetails.drinks[0].strMeasure14
-                },
-                {
-                  'ingredient': cocktailDetails.drinks[0].strIngredient15,
-                  'measure': cocktailDetails.drinks[0].strMeasure15
-                }
+              var cocktailIngredientList = ingredientList = [
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient1, 'measure': cocktailDetails.drinks[0].strMeasure1 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient2, 'measure': cocktailDetails.drinks[0].strMeasure2 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient3, 'measure': cocktailDetails.drinks[0].strMeasure3 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient4, 'measure': cocktailDetails.drinks[0].strMeasure4 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient5, 'measure': cocktailDetails.drinks[0].strMeasure5 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient6, 'measure': cocktailDetails.drinks[0].strMeasure6 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient7, 'measure': cocktailDetails.drinks[0].strMeasure7 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient8, 'measure': cocktailDetails.drinks[0].strMeasure8 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient9, 'measure': cocktailDetails.drinks[0].strMeasure9 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient10, 'measure': cocktailDetails.drinks[0].strMeasure10 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient11, 'measure': cocktailDetails.drinks[0].strMeasure11 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient12, 'measure': cocktailDetails.drinks[0].strMeasure12 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient13, 'measure': cocktailDetails.drinks[0].strMeasure13 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient14, 'measure': cocktailDetails.drinks[0].strMeasure14 },
+                { 'ingredient': cocktailDetails.drinks[0].strIngredient15, 'measure': cocktailDetails.drinks[0].strMeasure15 }
               ]
 
               for (var i = 0; i < cocktailIngredientList.length; i++) {
