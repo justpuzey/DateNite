@@ -11,6 +11,11 @@ body {
     height: 100%;
 }
 
+/* hide main scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
 /* Background Image Style */
 .bgContainer {
     position: absolute;
@@ -22,7 +27,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding-top: 8%
 }
 
@@ -62,6 +67,67 @@ body {
 
 .radio {
     font-size: 1.1rem;
+}
+
+/* Extra detail.js Styles */
+#details-main-container {
+    height:90%
+}
+
+
+#details-columns {
+    height: 100%;
+    overflow: scroll;
+    background-color: rgba(151, 151, 151, 0.95);
+    border-radius: 1.5%;
+    position: relative;
+    top: -75px;
+}
+
+/* #details-columns::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#details-columns::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#details-columns::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+} */
+
+
+
+
+
+.details-title-style {
+    position: absolute;
+    top: -80px;
+}
+
+.details-title-container {
+    display:flex;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+
+.thumbnail {
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.details-subtitle {
+    margin: auto auto;
 }
 
 /* Background Images URLs */
@@ -114,4 +180,5 @@ body {
 
 .Glass {
     color: crimson;
+    font-weight:bolder
 }
