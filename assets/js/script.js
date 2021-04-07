@@ -189,9 +189,9 @@ var getMeal = function (mainIngredientValue) {
 // getAlcDrink()
 
 
-var displayModalRecommendations = function () {
+// var displayModalRecommendations = function () {
 
-}
+// }
 
 // Modal click functions
 btnSubmit.addEventListener('click', function (event) {
@@ -201,7 +201,7 @@ btnSubmit.addEventListener('click', function (event) {
   getMeal(mainIngredientValue)
 
 
-  displayModalRecommendations();
+  // displayModalRecommendations();
 
   modal.classList.add('is-active');
 })
