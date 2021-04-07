@@ -14,9 +14,10 @@
 
 // Possible upgrades: drink selecction based on users age
 
-// var mainIngredientEl = document.querySelector("#main-ingredient");
-// var recommendationsModalEl = document.querySelector("#recommendations-modal")
-// var formEl = document.querySelector("#form");
+
+var mainIngredientEl = document.querySelector("#main-ingredient");
+var mealPic = document.querySelector(".meal-pic");
+
 
 // modal click function vars
 var btnSubmit = document.querySelector("#btn-submit")
@@ -26,26 +27,123 @@ modal.classList.remove('is-active');
 
 
 // returns meal as the meal ID from the Object in the API
-var getMeal = function () {
-  var mainIngredient = 'chicken'
-  var mealUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + mainIngredient
+var getMeal = function (mainIngredientValue) {
+
+
+
+  // var mainIngredient = 'chicken'
+  var mealUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + mainIngredientValue
   fetch(mealUrl)
     .then(function (response) {
       response.json().then(function (mealChoice) {
-        var mealID = mealChoice.meals[Math.floor(Math.random() *  mealChoice.meals.length)].idMeal
-        console.log('meals based on main Ingredient: ', mealChoice)
-        return mealID
+        randomMeal = mealChoice.meals[Math.floor(Math.random() * mealChoice.meals.length)];
+        mealId = randomMeal.idMeal;
+        mealThum = randomMeal.strMealThumb;
+        mealName = randomMeal.strMeal;
+
+        mealDisplayPic = document.querySelector("#meal-pic[data-pic='1']")
+        mealDisplayPic.setAttribute("src", mealThum);
+
+        // Insert links for each meal and meal ID to link for detail.html
+        var link1 = document.querySelector("#link1");
+        link1.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+
+        // Turn into a for loop later for cleanup
+        // for(var i = 0; i < 4; i++) {
+        // randomMeal1 = mealChoice.meals[Math.floor(Math.random() *  mealChoice.meals.length)];
+        // meal1Id = randomMeal1.idMeal;
+        // meal1Thum = randomMeal1.strMealThumb;
+        // meal1Name = randomMeal1.strMeal;
+        // console.log(meal1Id)
+        // console.log(meal1Thum)
+        // console.log(meal1Name)
+        // }
+
+        // var mealID = mealChoice.meals[Math.floor(Math.random() *  mealChoice.meals.length)].idMeal
+        // console.log('meals based on main Ingredient: ', mealChoice)
+        // console.log(mealID)
+        // return mealID
 
         // var mealDetailURL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID
         // fetch(mealDetailURL)
         //   .then(function (response) {
         //     response.json().then(function (mealDetails) {
         //       console.log('details', mealDetails)
-            })
-          })
-        }
-    //   })
-    // }
+      })
+    })
+
+  var mealUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + mainIngredientValue
+  fetch(mealUrl)
+    .then(function (response) {
+      response.json().then(function (mealChoice) {
+        randomMeal = mealChoice.meals[Math.floor(Math.random() * mealChoice.meals.length)];
+        mealId = randomMeal.idMeal;
+        mealThum = randomMeal.strMealThumb;
+        mealName = randomMeal.strMeal;
+
+        mealDisplayPic = document.querySelector("#meal-pic[data-pic='2']")
+        mealDisplayPic.setAttribute("src", mealThum);
+
+        var link2 = document.querySelector("#link2");
+        link2.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+      })
+    })
+
+  var mealUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + mainIngredientValue
+  fetch(mealUrl)
+    .then(function (response) {
+      response.json().then(function (mealChoice) {
+        randomMeal = mealChoice.meals[Math.floor(Math.random() * mealChoice.meals.length)];
+        mealId = randomMeal.idMeal;
+        mealThum = randomMeal.strMealThumb;
+        mealName = randomMeal.strMeal;
+
+        mealDisplayPic = document.querySelector("#meal-pic[data-pic='3']")
+        mealDisplayPic.setAttribute("src", mealThum);
+
+        var link3 = document.querySelector("#link3");
+        link3.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+      })
+    })
+
+  var mealUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + mainIngredientValue
+  fetch(mealUrl)
+    .then(function (response) {
+      response.json().then(function (mealChoice) {
+        randomMeal = mealChoice.meals[Math.floor(Math.random() * mealChoice.meals.length)];
+        mealId = randomMeal.idMeal;
+        mealThum = randomMeal.strMealThumb;
+        mealName = randomMeal.strMeal;
+
+        mealDisplayPic = document.querySelector("#meal-pic[data-pic='4']")
+        mealDisplayPic.setAttribute("src", mealThum);
+
+        var link4 = document.querySelector("#link4");
+        link4.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+      })
+    })
+
+  var mealUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + mainIngredientValue
+  fetch(mealUrl)
+    .then(function (response) {
+      response.json().then(function (mealChoice) {
+        randomMeal = mealChoice.meals[Math.floor(Math.random() * mealChoice.meals.length)];
+        mealId = randomMeal.idMeal;
+        mealThum = randomMeal.strMealThumb;
+        mealName = randomMeal.strMeal;
+
+        mealDisplayPic = document.querySelector("#meal-pic[data-pic='5']")
+        mealDisplayPic.setAttribute("src", mealThum);
+
+        var link5 = document.querySelector("#link5");
+        link5.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+      })
+    })
+
+
+}
+//   })
+// }
 
 
 // var getNonAlcDrink = function() {
@@ -70,24 +168,28 @@ var getMeal = function () {
 //   })
 // }
 
-getMeal()
+// getMeal()
 // getNonAlcDrink()
 // getAlcDrink()
 
 
-var displayModalRecommendations = function() {
-  
+var displayModalRecommendations = function () {
+
 }
 
 // Modal click functions
-btnSubmit.addEventListener('click', function(event) {
+btnSubmit.addEventListener('click', function (event) {
   event.preventDefault;
+  mainIngredientValue = mainIngredientEl.value.toLowerCase().trim();
+
+  getMeal(mainIngredientValue)
+
 
   displayModalRecommendations();
 
   modal.classList.add('is-active');
 })
 
-modalBg.addEventListener('click', function() {
+modalBg.addEventListener('click', function () {
   modal.classList.remove('is-active');
 })
