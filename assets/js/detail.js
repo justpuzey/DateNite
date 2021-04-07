@@ -149,7 +149,7 @@ var displayDrinkDetails = function (alcoholicValue) {
               cocktailThumb.appendChild(cocktailThumbEl);
 
               //Ingredient List (this is needed to simplify API format)
-              var cocktailIngredientList = var ingredientList = [
+              var cocktailIngredientList = ingredientList = [
                 { 'ingredient': cocktailDetails.drinks[0].strIngredient1, 'measure': cocktailDetails.drinks[0].strMeasure1 },
                 { 'ingredient': cocktailDetails.drinks[0].strIngredient2, 'measure': cocktailDetails.drinks[0].strMeasure2 },
                 { 'ingredient': cocktailDetails.drinks[0].strIngredient3, 'measure': cocktailDetails.drinks[0].strMeasure3 },
