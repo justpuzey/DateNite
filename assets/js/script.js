@@ -48,6 +48,9 @@ var getMeal = function (mainIngredientValue) {
         var link1 = document.querySelector("#link1");
         link1.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
 
+        mealName1 = document.querySelector("#mealName1");
+        mealName1.textContent = mealName;
+
         // Turn into a for loop later for cleanup
         // for(var i = 0; i < 4; i++) {
         // randomMeal1 = mealChoice.meals[Math.floor(Math.random() *  mealChoice.meals.length)];
@@ -86,6 +89,9 @@ var getMeal = function (mainIngredientValue) {
 
         var link2 = document.querySelector("#link2");
         link2.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+
+        mealName2 = document.querySelector("#mealName2");
+        mealName2.textContent = mealName;
       })
     })
 
@@ -103,6 +109,9 @@ var getMeal = function (mainIngredientValue) {
 
         var link3 = document.querySelector("#link3");
         link3.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+
+        mealName3 = document.querySelector("#mealName3");
+        mealName3.textContent = mealName;
       })
     })
 
@@ -120,6 +129,9 @@ var getMeal = function (mainIngredientValue) {
 
         var link4 = document.querySelector("#link4");
         link4.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+
+        mealName4 = document.querySelector("#mealName4");
+        mealName4.textContent = mealName;
       })
     })
 
@@ -137,6 +149,9 @@ var getMeal = function (mainIngredientValue) {
 
         var link5 = document.querySelector("#link5");
         link5.setAttribute("href", "./assets/pages/detail.html?mealId=" + mealId);
+
+        mealName5 = document.querySelector("#mealName5");
+        mealName5.textContent = mealName;
       })
     })
 
