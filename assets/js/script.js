@@ -14,6 +14,15 @@
 
 // Possible upgrades: drink selecction based on users age
 
+// var mainIngredientEl = document.querySelector("#main-ingredient");
+// var recommendationsModalEl = document.querySelector("#recommendations-modal")
+// var formEl = document.querySelector("#form");
+
+// modal click function vars
+var btnSubmit = document.querySelector("#btn-submit")
+var modalBg = document.querySelector(".modal-background")
+var modal = document.querySelector(".modal")
+modal.classList.remove('is-active');
 
 
 // returns meal as the meal ID from the Object in the API
@@ -37,7 +46,7 @@ var getMeal = function () {
         }
     //   })
     // }
-  
+
 
 // var getNonAlcDrink = function() {
 //   var drinkNAurl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
@@ -64,3 +73,21 @@ var getMeal = function () {
 getMeal()
 // getNonAlcDrink()
 // getAlcDrink()
+
+
+var displayModalRecommendations = function() {
+  
+}
+
+// Modal click functions
+btnSubmit.addEventListener('click', function(event) {
+  event.preventDefault;
+
+  displayModalRecommendations();
+
+  modal.classList.add('is-active');
+})
+
+modalBg.addEventListener('click', function() {
+  modal.classList.remove('is-active');
+})
