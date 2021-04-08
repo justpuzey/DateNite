@@ -11,8 +11,6 @@ modal.classList.remove('is-active');
 var getMeal = function (mainIngredientValue) {
 
   var alcoholicValue = document.alcoholicForm.alcoholic.value
-
-  // var mainIngredient = 'chicken'
   var mealUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + mainIngredientValue
   fetch(mealUrl)
     .then(function (response) {
