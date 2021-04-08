@@ -29,14 +29,14 @@ modal.classList.remove('is-active');
 // returns meal as the meal ID from the Object in the API
 var getMeal = function (mainIngredientValue) {
 
-  var alcoholicValue  = document.alcoholicForm.alcoholic.value
-  console.log(alcoholicValue)
+  var alcoholicValue = document.alcoholicForm.alcoholic.value
 
   // var mainIngredient = 'chicken'
   var mealUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + mainIngredientValue
   fetch(mealUrl)
     .then(function (response) {
       response.json().then(function (mealChoice) {
+
         randomMeal = mealChoice.meals[Math.floor(Math.random() * mealChoice.meals.length)];
         mealId = randomMeal.idMeal;
         mealThum = randomMeal.strMealThumb;
@@ -52,27 +52,6 @@ var getMeal = function (mainIngredientValue) {
         mealName1 = document.querySelector("#mealName1");
         mealName1.textContent = mealName;
 
-        // Turn into a for loop later for cleanup
-        // for(var i = 0; i < 4; i++) {
-        // randomMeal1 = mealChoice.meals[Math.floor(Math.random() *  mealChoice.meals.length)];
-        // meal1Id = randomMeal1.idMeal;
-        // meal1Thum = randomMeal1.strMealThumb;
-        // meal1Name = randomMeal1.strMeal;
-        // console.log(meal1Id)
-        // console.log(meal1Thum)
-        // console.log(meal1Name)
-        // }
-
-        // var mealID = mealChoice.meals[Math.floor(Math.random() *  mealChoice.meals.length)].idMeal
-        // console.log('meals based on main Ingredient: ', mealChoice)
-        // console.log(mealID)
-        // return mealID
-
-        // var mealDetailURL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID
-        // fetch(mealDetailURL)
-        //   .then(function (response) {
-        //     response.json().then(function (mealDetails) {
-        //       console.log('details', mealDetails)
       })
     })
 

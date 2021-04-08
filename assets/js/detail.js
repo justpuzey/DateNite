@@ -11,8 +11,6 @@ window.onload = function () {
   var url = new URL(url_string);
   var mealId = url.searchParams.get("mealid");
   var alcoholic = url.searchParams.get("alcoholic");
-  console.log(mealId)
-  console.log(alcoholic)
 
   if (mealId) {
     displayMealDetails(mealId);
@@ -30,10 +28,9 @@ var displayMealDetails = function (mealId) {
   fetch(mealDetailURL)
     .then(function (response) {
       response.json().then(function (mealDetails) {
-        console.log('details', mealDetails)
+
         //Add meal title
         var mealAPITitle = mealDetails.meals[0].strMeal;
-        console.log(mealAPITitle)
         mealTitle.textContent = mealAPITitle;
 
         //Add thumbnail image
@@ -70,7 +67,6 @@ var displayMealDetails = function (mealId) {
 
         for (var i = 0; i < ingredientList.length; i++) {
           if (ingredientList[i].ingredient != '') {
-            // console.log('iteration: ' + i + 'ingredient: ' + ingredientList[i].ingredient)
             var mIngEl = document.createElement('li')
             mIngEl.innerHTML = ingredientList[i].measure + ' ' + ingredientList[i].ingredient
             mealIngredients.appendChild(mIngEl)
@@ -86,9 +82,7 @@ var displayMealDetails = function (mealId) {
         var videoURL = mealDetails.meals[0].strYoutube
         if (videoURL) {
           videoID = videoURL.split('=')
-          console.log('vidID: ', videoID)
           var videoEmbedURL = 'https://www.youtube.com/embed/' + videoID[1]
-          console.log('vidURL: ', videoEmbedURL)
           mealVideo.setAttribute("src", videoEmbedURL)
           mealInstEl.innerHTML = mealDetails.meals[0].strInstructions
           mealInsructions.appendChild(mealInstEl)
@@ -106,7 +100,7 @@ var cocktailVideo = document.querySelector('#cocktail-video')
 
 var displayDrinkDetails = function (alcoholicValue) {
   alcoholicValue = parseInt(alcoholicValue, 10)
-  console.log('alcohol value:', typeof alcoholicValue)
+  // console.log('alcohol value:', typeof alcoholicValue)
   //fetch cotails based on filter type
   var filterType = ""
   if (alcoholicValue === 1) {
@@ -114,30 +108,23 @@ var displayDrinkDetails = function (alcoholicValue) {
   } else {
     filterType = 'Non_Alcoholic'
   }
-  console.log('filter type:', filterType)
+
   var cocktailsURL = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=' + filterType
-  console.log(cocktailsURL)
   fetch(cocktailsURL)
     .then(function (response) {
       response.json().then(function (cocktail) {
-        console.log('cocktails: ', cocktail)
-
         //Get random cocktail ID
         var cocktailIndex = Math.floor(Math.random() * cocktail.drinks.length);
-        console.log('cocktail Index:', cocktailIndex);
         var cocktailID = cocktail.drinks[cocktailIndex].idDrink;
-        console.log('cocktailID: ', cocktailID);
 
         //fetch cocktail details
         var cocktailDetailURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + cocktailID;
         fetch(cocktailDetailURL)
           .then(function (response) {
             response.json().then(function (cocktailDetails) {
-              console.log('cocktail details', cocktailDetails);
 
               //Add coctail title
               var coctailAPITitle = cocktailDetails.drinks[0].strDrink;
-              console.log('coctail title:', coctailAPITitle);
               cocktailTitle.textContent = coctailAPITitle;
 
               //Add thumbnail image
