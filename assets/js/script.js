@@ -16,8 +16,14 @@ var getMeal = function (mainIngredientValue) {
     .then(function (response) {
       response.json().then(function (mealChoice) {
 
+        //generate array of indexes
+        let mealIndexArray = Array.from(Array(mealChoice.meals.length), (x, index) => index);
+        console.log('mealIndexArray:', mealIndexArray);
+
         for (var i = 0; i < 6; i++) {
-          randomMeal = mealChoice.meals[Math.floor(Math.random() * mealChoice.meals.length)];
+          let randomMealIndex = Math.floor(Math.random() * mealIndexArray.length)
+          let mealIndex = mealIndexArray[randomMealIndex];
+          randomMeal = mealChoice.meals[mealIndex];
           mealId = randomMeal.idMeal;
           mealThum = randomMeal.strMealThumb;
           mealName = randomMeal.strMeal;
@@ -29,6 +35,9 @@ var getMeal = function (mainIngredientValue) {
           link1.setAttribute("href", "./assets/pages/detail.html?mealid=" + mealId + "&alcoholic=" + alcoholicValue);
           mealName1 = document.querySelector("#mealName" + (i + 1));
           mealName1.textContent = mealName;
+
+          //Remove this meal from array of indexes to prevent future duplicate meals
+          mealIndexArray.splice(randomMealIndex, 1);
         }
       })
     })
