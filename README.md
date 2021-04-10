@@ -1,5 +1,5 @@
 # DateNite
-* Deployed Application URL: https://github.com/justpuzey/DateNite
+* Deployed Application URL: https://justpuzey.github.io/DateNite/
 * GitHub Repository URL: https://github.com/justpuzey/DateNite
 ## Authors
 * Justin Puzey
