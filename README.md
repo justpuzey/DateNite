@@ -12,10 +12,10 @@ DateNite simplifies the process of deciding what to do for date night. Simply pr
 
 ## Fewer Decisions
 Just provide your preferred main ingredient:
-![Alt text](./assets/images/home.PNG?raw=true "website screenshot")
+![Alt text](./assets/images/home.png "home page")
 ## Recommendations
 Select from a list of recommendations:
-![Alt text](./assets/images/recommendation.PNG?raw=true "website screenshot")
+![Alt text](./assets/images/recommendation.png "recommendations modal")
 ## Detailed Recipes
 Follow along with simple recipes including tutorial vidoes:
-![Alt text](./assets/images/detail-page.PNG?raw=true "website screenshot")
+![Alt text](./assets/images/detail-page.png "detail page")
