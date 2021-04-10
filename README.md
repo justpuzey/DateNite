@@ -19,3 +19,9 @@ Select from a list of recommendations:
 ## Detailed Recipes
 Follow along with simple recipes including tutorial vidoes:
 ![Alt text](./assets/images/detail-page.png "detail page")
+
+## Technologies Used
+* Meal API: TheMeal.DB
+* Cocktail API: TheCocktail.DB
+* CSS Framework: Bulma
+* Fonts: Google Fonts
