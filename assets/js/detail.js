@@ -1,9 +1,9 @@
 // var mealID = '52941'
-var mealTitle = document.querySelector('#meal-title')
-var mealThumb = document.querySelector('#meal-img')
-var mealIngredients = document.querySelector('#meal-ingredients')
-var mealInsructions = document.querySelector('#meal-instructions')
-var mealVideo = document.querySelector('#meal-video')
+var mealTitle = document.querySelector('#meal-title');
+var mealThumb = document.querySelector('#meal-img');
+var mealIngredients = document.querySelector('#meal-ingredients');
+var mealInsructions = document.querySelector('#meal-instructions');
+var mealVideo = document.querySelector('#meal-video');
 //-------------------------------------------------------------------
 
 window.onload = function () {
@@ -11,12 +11,10 @@ window.onload = function () {
   var url = new URL(url_string);
   var mealId = url.searchParams.get("mealid");
   var alcoholic = url.searchParams.get("alcoholic");
-  console.log(mealId)
-  console.log(alcoholic)
 
   if (mealId) {
     displayMealDetails(mealId);
-    displayDrinkDetails(alcoholic)
+    displayDrinkDetails(alcoholic);
 
   } else {
     // redirect to the homepage
@@ -26,23 +24,22 @@ window.onload = function () {
 
 //ADD MEAL
 var displayMealDetails = function (mealId) {
-  var mealDetailURL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealId
+  var mealDetailURL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealId;
   fetch(mealDetailURL)
     .then(function (response) {
       response.json().then(function (mealDetails) {
-        console.log('details', mealDetails)
+
         //Add meal title
         var mealAPITitle = mealDetails.meals[0].strMeal;
-        console.log(mealAPITitle)
         mealTitle.textContent = mealAPITitle;
 
         //Add thumbnail image
-        var thumbURL = mealDetails.meals[0].strMealThumb
-        var thumbEl = document.createElement('img')
-        thumbEl.setAttribute("src", thumbURL)
-        thumbEl.setAttribute("class", 'thumbnail')
-        mealThumb.innerHTML = ""
-        mealThumb.appendChild(thumbEl)
+        var thumbURL = mealDetails.meals[0].strMealThumb;
+        var thumbEl = document.createElement('img');
+        thumbEl.setAttribute("src", thumbURL);
+        thumbEl.setAttribute("class", 'thumbnail');
+        mealThumb.innerHTML = "";
+        mealThumb.appendChild(thumbEl);
 
         //Ingredient List (this is needed to simplify API format)
         var ingredientList = [
@@ -69,75 +66,69 @@ var displayMealDetails = function (mealId) {
         ]
 
         for (var i = 0; i < ingredientList.length; i++) {
-          if (ingredientList[i].ingredient != '') {
-            // console.log('iteration: ' + i + 'ingredient: ' + ingredientList[i].ingredient)
-            var mIngEl = document.createElement('li')
-            mIngEl.innerHTML = ingredientList[i].measure + ' ' + ingredientList[i].ingredient
-            mealIngredients.appendChild(mIngEl)
+          if (ingredientList[i].ingredient != '' && ingredientList[i].ingredient != null) {
+            var mIngEl = document.createElement('li');
+            var measure = ingredientList[i].measure;
+            if (measure === null) {
+              measure = "";
+            }
+            mIngEl.innerHTML = ingredientList[i].measure + ' ' + ingredientList[i].ingredient;
+            mealIngredients.appendChild(mIngEl);
           }
         }
 
         //Add Instructions
-        var mealInstEl = document.createElement('p')
-        mealInstEl.innerHTML = mealDetails.meals[0].strInstructions
-        mealInsructions.appendChild(mealInstEl)
+        var mealInstEl = document.createElement('p');
+        mealInstEl.innerHTML = mealDetails.meals[0].strInstructions;
+        mealInsructions.appendChild(mealInstEl);
 
         //Embed Video
-        var videoURL = mealDetails.meals[0].strYoutube
+        var videoURL = mealDetails.meals[0].strYoutube;
         if (videoURL) {
-          videoID = videoURL.split('=')
-          console.log('vidID: ', videoID)
-          var videoEmbedURL = 'https://www.youtube.com/embed/' + videoID[1]
-          console.log('vidURL: ', videoEmbedURL)
-          mealVideo.setAttribute("src", videoEmbedURL)
-          mealInstEl.innerHTML = mealDetails.meals[0].strInstructions
-          mealInsructions.appendChild(mealInstEl)
+          videoID = videoURL.split('=');
+          var videoEmbedURL = 'https://www.youtube.com/embed/' + videoID[1];
+          mealVideo.setAttribute("src", videoEmbedURL);
+          mealInstEl.innerHTML = mealDetails.meals[0].strInstructions;
+          mealInsructions.appendChild(mealInstEl);
         }
       })
     })
 }
 //-------------------------------------------------------------------
 //ADD COCKTAIL
-var cocktailTitle = document.querySelector('#cocktail-title')
-var cocktailThumb = document.querySelector('#cocktail-img')
-var cocktailIngredients = document.querySelector('#cocktail-ingredients')
-var cocktailInsructions = document.querySelector('#cocktail-instructions')
-var cocktailVideo = document.querySelector('#cocktail-video')
+var cocktailTitle = document.querySelector('#cocktail-title');
+var cocktailThumb = document.querySelector('#cocktail-img');
+var cocktailIngredients = document.querySelector('#cocktail-ingredients');
+var cocktailInsructions = document.querySelector('#cocktail-instructions');
+var cocktailVideo = document.querySelector('#cocktail-video');
 
 var displayDrinkDetails = function (alcoholicValue) {
-  alcoholicValue = parseInt(alcoholicValue, 10)
-  console.log('alcohol value:', typeof alcoholicValue)
+  alcoholicValue = parseInt(alcoholicValue, 10);
+  // console.log('alcohol value:', typeof alcoholicValue)
   //fetch cotails based on filter type
   var filterType = ""
   if (alcoholicValue === 1) {
-    filterType = 'Alcoholic'
+    filterType = 'Alcoholic';
   } else {
-    filterType = 'Non_Alcoholic'
+    filterType = 'Non_Alcoholic';
   }
-  console.log('filter type:', filterType)
+
   var cocktailsURL = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=' + filterType
-  console.log(cocktailsURL)
   fetch(cocktailsURL)
     .then(function (response) {
       response.json().then(function (cocktail) {
-        console.log('cocktails: ', cocktail)
-
         //Get random cocktail ID
         var cocktailIndex = Math.floor(Math.random() * cocktail.drinks.length);
-        console.log('cocktail Index:', cocktailIndex);
         var cocktailID = cocktail.drinks[cocktailIndex].idDrink;
-        console.log('cocktailID: ', cocktailID);
 
         //fetch cocktail details
         var cocktailDetailURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + cocktailID;
         fetch(cocktailDetailURL)
           .then(function (response) {
             response.json().then(function (cocktailDetails) {
-              console.log('cocktail details', cocktailDetails);
 
               //Add coctail title
               var coctailAPITitle = cocktailDetails.drinks[0].strDrink;
-              console.log('coctail title:', coctailAPITitle);
               cocktailTitle.textContent = coctailAPITitle;
 
               //Add thumbnail image
@@ -169,26 +160,26 @@ var displayDrinkDetails = function (alcoholicValue) {
 
               for (var i = 0; i < cocktailIngredientList.length; i++) {
                 if (cocktailIngredientList[i].ingredient != '' && cocktailIngredientList[i].ingredient != null) {
-                  var cocktailIngEl = document.createElement('li')
+                  var cocktailIngEl = document.createElement('li');
                   //replace null values with ""
-                  var measure = cocktailIngredientList[i].measure
+                  var measure = cocktailIngredientList[i].measure;
                   if (measure === null) {
                     measure = "";
                   }
-                  cocktailIngEl.innerHTML = measure + ' ' + cocktailIngredientList[i].ingredient
-                  cocktailIngredients.appendChild(cocktailIngEl)
+                  cocktailIngEl.innerHTML = measure + ' ' + cocktailIngredientList[i].ingredient;
+                  cocktailIngredients.appendChild(cocktailIngEl);
                 }
               }
 
               //Add Instructions
-              var cocktailInstEl = document.createElement('p')
-              cocktailInstEl.innerHTML = cocktailDetails.drinks[0].strInstructions
-              cocktailInsructions.appendChild(cocktailInstEl)
+              var cocktailInstEl = document.createElement('p');
+              cocktailInstEl.innerHTML = cocktailDetails.drinks[0].strInstructions;
+              cocktailInsructions.appendChild(cocktailInstEl);
               //Recommended Glass
-              var glassInstEl = document.createElement('p')
-              glassInstEl.innerHTML = 'Recommended Serving Glass: ' + cocktailDetails.drinks[0].strGlass
-              glassInstEl.setAttribute("class", 'Glass')
-              cocktailInsructions.appendChild(glassInstEl)
+              var glassInstEl = document.createElement('p');
+              glassInstEl.innerHTML = 'Recommended Serving Glass: ' + cocktailDetails.drinks[0].strGlass;
+              glassInstEl.setAttribute("class", 'Glass');
+              cocktailInsructions.appendChild(glassInstEl);
             })
           })
       })

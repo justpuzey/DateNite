@@ -5,49 +5,68 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer&family=Share:ital,wght@1,700&display=swa&family=Lobster&family=Lobster+Two&family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <title>DateNight Detail</title>
+  <title>DateNite Details</title>
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-          <h1>Date Night</h1>
-      </div>
-    </div>
+  <div class="bgContainer">
 
-    <div class="row">
-      <!--Meal Column-->
-      <div class="col-6">
-        <h3 id="meal-title"></h3>
-        <div class="thumbnail" id="meal-img"></div>
-        <h3 id="meal-ingredient-list">Here's What You'll Need</h3>
-        <ul id="meal-ingredients"></ul>
-        <p>
-          <h3>Preparing the meal</h3>
-        </p>
-        <div id="meal-instructions"></div>
-        <!--Embedded Video-->
-        <iframe id="meal-video" width="420" height="315" src=""></iframe>
+      <div class="columns">
+        <header class="column is-12 has-text-centered">
+            <h1 id="title" class="title is-1 has-text-light details-title-style">DateNite</h1>
+        </header>
       </div>
 
-      <!--Coctail Column-->
-      <div class="col-6">
-        <h3 id="cocktail-title"></h3>
-        <div class="thumbnail" id="cocktail-img"></div>
-        <h3 id="cocktail-ingredient-list">Here's What You'll Need</h3>
-        <ul id="cocktail-ingredients"></ul>
-        <p>
-          <h3>Putting It All Together</h3>
-        </p>
-        <div id="cocktail-instructions"></div>
+      <div id="details-main-container" class="columns is-justify-content-space-around">
+        <!--Meal Column-->
+        <div id="details-columns" class="column is-5 has-text-light">
+          <div class="is-inline-flex">
+            <div class="thumbnail" id="meal-img"></div>
+            <div class="details-title-container">
+              <h3 id="meal-title" class="details-subtitle subtitle is-3 has-text-light"></h3>
+            </div>
+          </div>
+
+          <div id="" class="meal-content">
+            <h3 id="meal-title" class="details-subtitle subtitle is-3 has-text-light"></h3>
+            <h3 id="meal-ingredient-list" class="subtitle is-4 has-text-light mb-1">Here's What You'll Need:</h3>
+            <ul id="meal-ingredients"></ul>
+            <p>
+              <h3 class="subtitle is-4 has-text-light mt-5 mb-1">Preparing the meal:</h3>
+            </p>
+            <div id="meal-instructions"></div>
+            <!--Embedded Video-->
+            <h3 class="subtitle is-4 has-text-light mt-5 mb-1">Video Tutorial:</h3>
+            <iframe id="meal-video" width="420" height="315" src=""></iframe>
+          </div>
+        </div>
+
+        <!--Coctail Column-->
+        <div id="details-columns" class="column is-5 has-text-light">
+          <div class="is-inline-flex">
+            <div class="thumbnail" id="cocktail-img"></div>
+            <div class="details-title-container">
+              <h3 id="cocktail-title" class="details-subtitle subtitle is-3 has-text-light"></h3>
+            </div>
+          </div>
+
+          <div id="" class="meal-content">
+            <h3 id="cocktail-ingredient-list" class="subtitle is-4 has-text-light mb-1">Here's What You'll Need:</h3>
+            <ul id="cocktail-ingredients"></ul>
+            <p>
+              <h3 class="subtitle is-4 has-text-light mt-5 mb-1">Putting It All Together:</h3>
+            </p>
+            <div id="cocktail-instructions"></div>
+          </div>
+        </div>
 
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 
   <!-- JQuery UI in case we need -->
