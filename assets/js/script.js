@@ -27,7 +27,7 @@ var getMeal = function (mainIngredientValue) {
           mealId = randomMeal.idMeal;
           mealThum = randomMeal.strMealThumb;
           mealName = randomMeal.strMeal;
-          mealDisplayPic = document.querySelector("#meal-pic[data-pic='" + (i + 1) + "']")
+          mealDisplayPic = document.querySelector(".meal-pic[data-pic='" + (i + 1) + "']")
           mealDisplayPic.setAttribute("src", mealThum);
 
           // Insert links for each meal and meal ID to link for detail.html
