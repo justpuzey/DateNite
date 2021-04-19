@@ -27,7 +27,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    overflow: hidden; 
+    overflow: hidden;
     padding-top: 8%
 }
 
@@ -61,6 +61,14 @@ body {
     border-radius: 1%;
 }
 
+.slick-slide {
+    outline: none;
+}
+
+.meal-container {
+    margin-right: 1rem;
+}
+
 .modal-subtitle {
     font-family: 'IM Fell Great Primer', serif;
 }
@@ -71,7 +79,7 @@ body {
 
 /* Extra detail.js Styles */
 #details-main-container {
-    height:90%
+    height:90%;
 }
 
 
@@ -83,30 +91,6 @@ body {
     position: relative;
     top: -75px;
 }
-
-/* #details-columns::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
-}
-
-#details-columns::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: #F5F5F5;
-}
-
-#details-columns::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555;
-} */
-
-
-
-
 
 .details-title-style {
     position: absolute;
@@ -151,6 +135,15 @@ body {
     }
 }
 
+.thumbnail {
+    width: 250px;
+}
+
+.Glass {
+    color: crimson;
+    font-weight:bolder
+}
+
 /* Background Images URL for 768px */
 @media screen and (max-width : 768px) {
     @keyframes animate {
@@ -172,13 +165,49 @@ body {
             background-image: url("../images/ingredientsVertical.jpg");
         }
     }
-}
 
-.thumbnail {
-    width: 250px;
-}
+    header {
+        margin-top: 35px;
+    }
 
-.Glass {
-    color: crimson;
-    font-weight:bolder
+    #main-ingredient {
+        width: 80%;
+    }
+
+    .form-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Modal Styles */
+    .modal-content {
+        width: 90%;
+        margin-top: 25px;
+    }
+
+    .meal-container {
+        width: 80%
+    }
+
+    /* detail.html Styles */
+    #details-main-container {
+        height: 43%;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+    }
+
+    .thumbnail {
+        width: 150px;
+    }
+
+    .thumbnail-container {
+        width: 150px;
+        margin-right: 10px
+    }
+
+    #meal-video {
+        width: 90%;
+    }
 }
